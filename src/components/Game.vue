@@ -1,7 +1,6 @@
 <template>
     <div class="game">
         <div class="game-title">
-            <img src="logo.svg" alt="Vue" />
             <h1>Jogo da Velha</h1>
         </div>
 

@@ -5,7 +5,8 @@
                 :value="squares[indexByRow(i,row)]"
                 :disabled="!!winner"
                 :winner="!!winner && winner.includes(indexByRow(i, row))"
-                @click="click(i,row)" />
+                @click="click(i,row)" 
+            />
         </div>
     </div>
 </template>
@@ -15,19 +16,24 @@ import Square from './Square.vue'
 
 export default {
     name: 'Board',
+    data() {
+        return {
+            board: {},
+        }
+    },
     props: {
         squares: Array,
         winner: Array
     },
-    componets: {
+    components: {
         Square
     },
-    method: {
-        indexByRow (index, row, max =3) {
-            return (row * max + index) - (max + 1)
+    methods: {
+        indexByRow(index, row, max = 3) {
+            return ((row * max + index) - (max + 1))
         },
 
-        click (index, row) {
+        click(index, row) {
             this.$emit('click', this.indexByRow(index, row));
         }
     }
